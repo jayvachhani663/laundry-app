@@ -1,14 +1,18 @@
-import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
+import './Layout.css';
 
 const Layout = () => {
   return (
     <>
-      <nav style={{ padding: "1rem", background: "#eee" }}>
-        <Link to="#" style={{ marginRight: "1rem" }}>Home</Link>
-        <Link to="#" style={{ marginRight: "1rem" }}>Pricing</Link>
-        <Link to="#" style={{ marginRight: "1rem" }}>Career</Link>
-        <Link to="/signin">Sign In</Link>
+      <nav className="navbar">
+        <div className="logo">LAUNDRY</div> 
+        
+        <div className="nav-links">
+          <Link to="#">Home</Link>
+          <Link to="#">Pricing</Link>
+          <Link to="#">Career</Link>
+          <Link to="/signin" className="signin-btn">Sign In</Link>
+        </div>
       </nav>
 
       <main style={{ padding: "1rem" }}>

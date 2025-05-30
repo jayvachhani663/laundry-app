@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import lockIcon from '../assets/padlock.svg';
 import './SignIn.css';
 
 const SignIn = () => {
@@ -18,31 +19,55 @@ const SignIn = () => {
   };
 
   return (
+  <>
     <div className="signin-container">
-      <div className="left-section">
-        <h1>Laundry Service</h1>
-        <p>Doorstep Wash & Dryclean Service</p>
-        <p>Don't Have An Account?</p>
-        <button>Register</button>
+      <div className="main-content">
+        {/* Left Section */}
+        <div className="left-section">
+          <div className="left-content">
+            <h2>
+              Laundry <br /> Service
+            </h2>
+            <p>Doorstep Wash & Dryclean Service</p>
+            <div className="register-box">
+              <p>Don't Have An Account?</p>
+              <button className="register-btn">Register</button>
+            </div>
+          </div>
+        </div>
+
+        {/* Right Section */}
+        <div className="right-section">
+          <h2>Sign In</h2>
+
+          <label>Mobile / Email</label>
+          <input
+            type="text"
+            value={phone}
+            onChange={handlePhoneChange}
+            onBlur={validatePhone}
+            className={error ? 'input-error' : ''}
+          />
+          {error && <p className="error">{error}</p>}
+
+          <label>Password</label>
+          <div className="password-wrapper">
+            <input type="password" />
+            <img src={lockIcon} alt="lock icon" className="lock-icon" />
+          </div>
+
+          <p className="forgot-password">Forgot Password?</p>
+
+          <button>Sign In</button>
+        </div>
       </div>
 
-      <div className="right-section">
-        <h2>Sign In</h2>
-        <label>Mobile / Email</label>
-        <input
-          type="text"
-          value={phone}
-          onChange={handlePhoneChange}
-          onBlur={validatePhone}
-        />
-        {error && <p className="error">{error}</p>}
-
-        <label>Password</label>
-        <input type="password" />
-
-        <button>Sign In</button>
-      </div>
+      {/* Footer inside container */}
+      <footer className="footer">
+        <p>© 2025 Laundry Service. All rights reserved.</p>
+      </footer>
     </div>
+  </>
   );
 };
 

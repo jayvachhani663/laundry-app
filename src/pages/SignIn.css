@@ -3,3 +3,164 @@
   font-size: 14px;
   margin-top: 4px;
 }
+
+.input-error {
+  border: none;
+  border-bottom: 2px solid red;
+  color: red !important;
+}
+
+.main-content {
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+  align-items: center;
+  height: calc(100vh - 60px);  
+}
+
+.left-section {
+  flex: 1;
+  background-color: white;
+  color: #5861AE;
+  display: flex;
+  justify-content: left; 
+  align-items: flex-start;
+  padding: 2rem;
+}
+
+.left-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.left-content h2 {
+  font-size: 3.5rem;
+  font-weight: bold;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  color: #5861AE;
+}
+
+.left-content p {
+  color: #999;
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+
+.register-box {
+  text-align: left;
+}
+
+.register-box p {
+  margin-bottom: 0.5rem;
+  color: black;
+}
+
+.register-btn {
+  padding: 0.5rem 1rem;
+  background: transparent;
+  border: 1px solid #5861AE;
+  color: #5861AE;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.register-btn:hover {
+  background-color: #f0f0f0;
+}
+
+.signin-container {
+  display: flex;
+  height: 100vh;
+}
+
+.right-section {
+  flex: 1;
+  background-color: #f4f4f4;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 4rem;
+}
+
+.right-section h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #5861AE;
+}
+
+.right-section label {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+  font-weight: 500;
+}
+
+.right-section input[type="text"],
+.right-section input[type="password"] {
+  width: 100%;
+  padding: 0.5rem 0;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  background-color: transparent;
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+  outline: none;
+}
+
+.right-section input::placeholder {
+  color: #999;
+}
+
+.password-wrapper {
+  position: relative;
+}
+
+.forgot-password {
+  text-align: right;
+  color: #5861AE;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  margin-bottom: 2rem;
+  font-size: 0.9rem;
+}
+
+.right-section button {
+  padding: 0.75rem;
+  background-color: #5861AE;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.right-section button:hover {
+  background-color: #40479e;
+}
+
+.lock-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+}
+
+.footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #5861AE;
+  color: white;
+  font-size: 0.9rem;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
