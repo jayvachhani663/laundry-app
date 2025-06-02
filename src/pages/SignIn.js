@@ -38,7 +38,7 @@ const SignIn = () => {
             <p>Doorstep Wash & Dryclean Service</p>
             <div className="register-box">
               <p>Don't Have An Account?</p>
-              <button className="register-btn" onClick={goToRegister}>Register</button>
+              <button className="register-btn-signIn" onClick={goToRegister}>Register</button>
             </div>
           </div>
         </div>
