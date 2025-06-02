@@ -1,10 +1,13 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import lockIcon from '../assets/padlock.svg';
+import Footer from '../components/Footer';
 import './SignIn.css';
 
 const SignIn = () => {
   const [phone, setPhone] = useState('');
   const [error, setError] = useState('');
+  const navigate = useNavigate();
 
   const handlePhoneChange = (e) => {
     setPhone(e.target.value);
@@ -18,6 +21,10 @@ const SignIn = () => {
     }
   };
 
+    const goToRegister = () => {
+    navigate('/register');
+    };
+    
   return (
   <>
     <div className="signin-container">
@@ -31,7 +38,7 @@ const SignIn = () => {
             <p>Doorstep Wash & Dryclean Service</p>
             <div className="register-box">
               <p>Don't Have An Account?</p>
-              <button className="register-btn">Register</button>
+              <button className="register-btn" onClick={goToRegister}>Register</button>
             </div>
           </div>
         </div>
@@ -61,11 +68,7 @@ const SignIn = () => {
           <button>Sign In</button>
         </div>
       </div>
-
-      {/* Footer inside container */}
-      <footer className="footer">
-        <p>© 2025 Laundry Service. All rights reserved.</p>
-      </footer>
+      <Footer/>
     </div>
   </>
   );
