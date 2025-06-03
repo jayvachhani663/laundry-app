@@ -24,7 +24,9 @@ const SignIn = () => {
     const goToRegister = () => {
     navigate('/register');
     };
-    
+    const goToDashbord = () => {
+      navigate('/deshbord')
+    }
   return (
   <>
     <div className="signin-container">
@@ -65,7 +67,7 @@ const SignIn = () => {
 
           <p className="forgot-password">Forgot Password?</p>
 
-          <button>Sign In</button>
+          <button onClick={goToDashbord}>Sign In</button>
         </div>
       </div>
       <Footer/>

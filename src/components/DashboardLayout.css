@@ -1,0 +1,199 @@
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f7f8fc;
+}
+
+.container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.dashboard-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 60px;
+  height: 80px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.dashboard-logo {
+  font-size: 32px;
+  font-weight: 700;
+  color: #3f51b5;
+  letter-spacing: 0.5px;
+}
+
+.dashboard-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.dashboard-nav-links a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  font-size: 16px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 24px;
+  border-left: 1px solid #ddd;
+}
+
+.dashboard-nav-links a:hover {
+  color: #3f51b5;
+}
+
+.dashboard-profile-box {
+  display: flex;
+  align-items: center;
+  border-left: 1px solid #ddd;
+  background-color: #3f51b5;
+  padding: 0 24px;
+  height: 80px;
+  gap: 8px;
+}
+
+.dashboard-profile-image {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+.dashboard-username {
+  color: white;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.dashboard-container {
+  display: flex;
+}
+
+.left-sidebar {
+  width: 50px;
+  height: calc(100vh - 80px);
+  position: fixed;
+  background-color: #5861ae;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-icon {
+  width: 48px;
+  height: 48px;
+  margin: 24px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.sidebar-icon img {
+  width: 24px;
+  height: 24px;
+  filter: brightness(0) invert(1); /* make white on dark bg */
+}
+
+.sidebar-icon.active {
+  background-color: white;
+  width: 100%;
+}
+
+.sidebar-icon.active img {
+  filter: none;
+}
+
+.orders-header {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 32px;
+  padding-left: 82px;
+  box-sizing: border-box;
+}
+
+.orders-count {
+  font-size: 24px;
+  font-weight: 450;
+  font: normal normal Open Sans;
+  color: #000000;
+}
+
+.search-wrapper {
+  position: relative;
+  width: 260px;
+}
+
+.orders-search {
+  padding: 10px 40px 10px 40px;
+  font-size: 14px;
+  width: 100%;
+  background-color: white;
+  outline: none;
+}
+
+.search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.no-orders-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 80px); 
+  text-align: center;
+}
+
+.no-orders-message {
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.create-order-button {
+  padding: 10px 20px;
+  background-color: white;
+  color: #5861AE;
+  font-size: 16px;
+  border: 1px solid #5861AE;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.orders-section {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding-left: 82px; /* To avoid sidebar overlap */
+  box-sizing: border-box;
+}
+
+.no-orders-container {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.create-order-button:hover {
+  background-color: #eeeeee;
+}

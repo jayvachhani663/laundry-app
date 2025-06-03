@@ -87,7 +87,7 @@ const Register = () => {
                 </label>
               </div>
 
-              <button className="register-btn" type="submit">Register</button>
+              <button className="register-btn" type="submit" onClick={goToSignin}>Register</button>
             </div>
           </form>
         </div>
