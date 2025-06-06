@@ -14,7 +14,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 60px;
+  padding: 0 0 0 50px;
   height: 80px;
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
@@ -78,11 +78,12 @@ body {
 
 .left-sidebar {
   width: 50px;
-  height: calc(100vh - 80px);
-  position: fixed;
+  height: auto;
   background-color: #5861ae;
   display: flex;
   flex-direction: column;
+  top: 80px;
+  left: 0;
 }
 
 .sidebar-icon {
@@ -98,7 +99,7 @@ body {
 .sidebar-icon img {
   width: 24px;
   height: 24px;
-  filter: brightness(0) invert(1); /* make white on dark bg */
+  filter: brightness(0) invert(1);
 }
 
 .sidebar-icon.active {
@@ -116,7 +117,6 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 24px 32px;
-  padding-left: 82px;
   box-sizing: border-box;
 }
 
@@ -133,9 +133,9 @@ body {
 }
 
 .orders-search {
-  padding: 10px 40px 10px 40px;
+  padding: 10px 0px 10px 39px;
   font-size: 14px;
-  width: 100%;
+  width: 85%;
   background-color: white;
   outline: none;
 }
@@ -156,7 +156,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: calc(100vh - 80px); 
+  height: calc(100vh - 80px);
   text-align: center;
 }
 
@@ -170,30 +170,153 @@ body {
 .create-order-button {
   padding: 10px 20px;
   background-color: white;
-  color: #5861AE;
+  color: #5861ae;
   font-size: 16px;
-  border: 1px solid #5861AE;
+  border: 1px solid #5861ae;
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s;
 }
 
 .orders-section {
+  margin-left: 50px;
   display: flex;
   flex-direction: column;
-  width: 100%;
-  padding-left: 82px; /* To avoid sidebar overlap */
+  width: calc(100% - 50px);
   box-sizing: border-box;
-}
-
-.no-orders-container {
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 
 .create-order-button:hover {
   background-color: #eeeeee;
+}
+
+.order-create-table {
+  margin: 24px 32px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  overflow: hidden;
+  font-family: "Open Sans", sans-serif;
+}
+
+.order-header-row {
+  display: flex;
+  background-color: #2f2f2f;
+  font-weight: 600;
+  font-size: 14px;
+  color: white;
+  border-bottom: 1px solid #ccc;
+  padding: 12px 0;
+}
+
+.order-row {
+  display: flex;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.order-col {
+  flex: 1;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+}
+
+.product-name {
+  flex: 2;
+}
+
+.quantity-input {
+  width: 60px;
+  padding: 6px 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.wash-icons img {
+  margin-right: 12px;
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+}
+
+.product-info {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.product-image {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.product-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.product-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+
+.product-desc {
+  font-size: 12px;
+  color: #777;
+  margin-top: 4px;
+}
+
+.price-reset-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 50px;
+  padding-right: 20px;
+}
+
+.price-text {
+  width: 68px;
+  height: 24px;
+  font: normal normal 525 18px/24px Open Sans;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+}
+
+.reset-btn {
+  color: #5861ae;
+  width: 81px;
+  height: 32px;
+  margin-right: 20px;
+  padding: 2px 8px;
+  font-size: 12px;
+  background-color: white;
+  border: 1px solid #5861ae;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: flex-end;
+  padding: 20px;
+  background-color: #f7f8fc;
+}
+
+.proceed-btn {
+  padding: 10px 20px;
+  background-color: #5861AE;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.proceed-btn:hover {
+  background-color: #404a8a;
 }

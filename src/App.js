@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Signin from './pages/SignIn'; 
 import Layout from './components/Layout';
 import Register from './pages/Register';
-import Deshboard from './components/DashboardLayout';
+import Deshboard from './pages/DashboardLayout';
 
 function App() {
   return (

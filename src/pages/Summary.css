@@ -1,0 +1,150 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap");
+
+body {
+  font-family: "Open Sans", sans-serif;
+}
+.summary {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 60%;
+  height: 100%;
+  background: white;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+.summary-header {
+  height: 25px;
+  background-color: #5861ae;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 25px;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.summary-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 999;
+}
+
+.store-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #f4f9ff;
+  padding: 16px 32px;
+  border-bottom: 1px solid #e0e0e0;
+  gap: 40px;
+}
+
+.area-select {
+  border: none;
+  border-bottom: 2px solid #ccc;
+  background-color: transparent;
+  font-size: 14px;
+  padding: 8px 4px;
+  min-width: 120px;
+  outline: none;
+  cursor: pointer;
+}
+
+.store-address-phone {
+  display: flex;
+  gap: 80px;
+  min-width: 300px;
+  justify-content: flex-end;
+  flex-grow: 1;
+}
+
+.store-address-phone div {
+  width: 200px;
+  font-size: 14px;
+  color: #333;
+  word-break: break-word;
+}
+
+.store-address-phone strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1b2734;
+  margin-bottom: 4px;
+}
+
+.summary-order-details {
+  padding: 20px 30px;
+  font-size: 14px;
+  color: #1b2734;
+}
+
+.summary-order-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.product-type {
+  width: 25%;
+  font-weight: 500;
+}
+
+.service-type {
+  width: 40%;
+  font-style: italic;
+  color: #555;
+}
+
+.product-price {
+  width: 25%;
+  text-align: right;
+  font-weight: bold;
+  color: #5861ae;
+}
+
+.summary-pricing-section {
+  margin-right: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.summary-subtotal-row,
+.summary-pickup-row {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 500;
+  color: #333;
+  padding: 0px 0px 0px 70%;
+}
+
+.summary-pickup-row{
+  border-top: 1px solid #ccc;
+}
+
+.summary-total-row {
+  display: flex;
+  justify-content: space-between;
+  background-color: #5861ae;
+  color: white;
+  font-weight: bold;
+  padding: 10px 14px;
+  border-radius: 2px;
+  margin-top: 8px;
+}

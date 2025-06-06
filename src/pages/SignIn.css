@@ -11,23 +11,24 @@
 }
 
 .main-content {
-   display: flex;
+  display: flex;
   justify-content: space-between;
-  align-items: stretch; 
+  align-items: stretch;
 }
 
 .left-section {
   flex: 1;
   background-color: white;
-  color: #5861AE;
+  color: #5861ae;
   display: flex;
-  justify-content: left; 
+  justify-content: left;
   align-items: flex-start;
   padding: 2rem;
 }
 
 .left-content {
   display: flex;
+  margin-left: 30px;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
@@ -38,7 +39,7 @@
   font-weight: bold;
   line-height: 1.2;
   margin-bottom: 1rem;
-  color: #5861AE;
+  color: #5861ae;
 }
 
 .left-content p {
@@ -58,11 +59,13 @@
 
 .register-btn-signIn {
   padding: 0.5rem 1rem;
+  width: 150px;
+  height: 50px;
   background: transparent;
-  border: 1px solid #5861AE;
-  color: #5861AE;
+  border: 2px solid #4552c1;
+  color: #4552c1;
   border-radius: 4px;
-  font-weight: 500;
+  font: normal normal bold 15px/20px Open Sans;
   cursor: pointer;
   transition: background 0.3s ease;
 }
@@ -73,12 +76,12 @@
 
 .signin-container {
   display: flex;
-flex-direction: column;
+  flex-direction: column;
 }
 
 .right-section {
   flex: 1;
-  background-color: #B9C0FD1A;
+  background-color: #b9c0fd1a;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -86,16 +89,16 @@ flex-direction: column;
 }
 
 .right-section h2 {
-  font-size: 2rem;
+  font: normal normal medium 32px/60px Avenir;
   margin-bottom: 2rem;
-  color: #5861AE;
+  color: #4552c1;
 }
 
 .right-section label {
-  margin-top: 1rem;
-  margin-bottom: 0.5rem;
-  color: #333;
-  font-weight: 500;
+  font: normal normal normal 17px/27px Open Sans;
+  letter-spacing: 0.6px;
+  color: #77838f;
+  opacity: 1;
 }
 
 .right-section input[type="text"],
@@ -121,7 +124,7 @@ flex-direction: column;
 
 .forgot-password {
   text-align: right;
-  color: #5861AE;
+  color: #5861ae;
   cursor: pointer;
   margin-top: 0.5rem;
   margin-bottom: 2rem;
@@ -130,12 +133,13 @@ flex-direction: column;
 
 .right-section button {
   padding: 0.75rem;
-  background-color: #5861AE;
-  color: white;
+  width: 150px;
+  height: 50px;
   border: none;
-  border-radius: 6px;
-  font-size: 1rem;
+  background: #4552c1 0% 0% no-repeat padding-box;
+  border-radius: 4px;
   cursor: pointer;
+  color: #ffffff;
   transition: background-color 0.3s ease;
 }
 
@@ -154,6 +158,6 @@ flex-direction: column;
 
 .signin-container {
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
   min-height: 100vh;
 }
