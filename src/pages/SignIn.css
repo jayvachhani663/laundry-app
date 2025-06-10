@@ -75,8 +75,9 @@
 }
 
 .signin-container {
-  display: flex;
+   display: flex;
   flex-direction: column;
+  min-height: 100vh;
 }
 
 .right-section {
@@ -154,10 +155,4 @@
   transform: translateY(-50%);
   width: 16px;
   height: 16px;
-}
-
-.signin-container {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
 }

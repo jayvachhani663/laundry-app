@@ -2,18 +2,18 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #B9C0FD1A;
-  color: #5861AE;
-  font-size: 0.9rem;
-  padding: 1.5rem 1rem;
-  border-top: 1px solid #ccc;
+  background-color: #b9c0fd1a;
+  color: #5861ae;
+  font: normal normal 400 17px/26px Open Sans;
+  padding: 1rem 1rem;
+  border-top: 2px solid #5861ae;
   position: relative;
   overflow: hidden;
 }
 
 .footer-links-section {
   width: 100%;
-  background: url('/src/assets/Footer.svg') no-repeat center/cover;
+  background: url("/src/assets/Footer.svg") no-repeat center/cover;
   padding: 2rem 0;
   display: flex;
   justify-content: center;
@@ -37,12 +37,12 @@
 
 .footer-column h4 {
   margin-bottom: 0.75rem;
-  font: normal normal medium 18px/24px Avenir;;
+  font: normal normal medium 18px/24px Avenir;
   color: #182838;
 }
 
 .footer-column a {
-  color: #5861AE;
+  color: #5861ae;
   text-decoration: none;
   margin-bottom: 0.5rem;
   font-size: 0.9rem;
@@ -54,7 +54,7 @@
 }
 
 .footer-link {
-  color: #3D3D43;
+  color: #3d3d43;
   margin-bottom: 0.7rem;
   font-size: 15px;
   font: normal normal normal 15px/20px Avenir;

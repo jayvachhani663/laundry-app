@@ -1,5 +1,5 @@
 .register-left-section {
-  width: 20%;
+  width: 30%;
   background-color: white;
   display: flex;
   flex-direction: column;
@@ -18,15 +18,14 @@
 }
 
 .register-left-section h1 {
-  font-size: 3rem;
-  font-weight: 700;
+  font: normal normal 900 62px/80px Avenir;
   color: #4a4fa3;
   margin: 0;
   line-height: 1.2;
 }
 
 .register-left-section p {
-  font-size: 1rem;
+  font: normal normal normal 20px/32px Avenir;
   color: #555;
   margin: 10px 0 0 0;
 }
@@ -36,7 +35,7 @@
 }
 
 .signin-section p {
-  font-size: 0.9rem;
+  font: normal normal normal 16px/26px Avenir;
   color: #555;
   margin-bottom: 8px;
 }
@@ -53,18 +52,17 @@
 }
 
 .register-left-section button {
-  width: 120px;
-  height: 40px;
+  width: 150px;
+  height: 50px;
   border: 2px solid #5861ae;
   background-color: white;
-  /* color: #4a4fa3; */
-  font-weight: bold;
+  font: normal normal bold 15px/20px Open Sans;
   cursor: pointer;
   border-radius: 4px;
 }
 
 .register-right-section {
-  width: 80%;
+  width: 70%;
   background-color: #f1f3fb;
   padding: 0px 50px;
   display: flex;
@@ -74,8 +72,7 @@
 
 .register-right-section h2 {
   color: #4a4fa3;
-  font-size: 2rem;
-  font-weight: 700;
+  font: normal normal normal 32px/60px Avenir;
   margin-bottom: 30px;
   text-align: left;
 }
@@ -100,7 +97,7 @@ form {
 
 label {
   color: #4a4fa3;
-  font-size: 0.9rem;
+  font: normal normal normal 12px/15px Open Sans;
   margin-bottom: 5px;
 }
 
@@ -111,7 +108,7 @@ select {
   border-bottom: 2px solid #ccc;
   background-color: transparent;
   outline: none;
-  font-size: 1rem;
+  font: normal normal 600 17px/27px Open Sans;;
   transition: border-color 0.3s;
 }
 
@@ -143,7 +140,7 @@ select:focus {
 }
 
 .checkbox-container label {
-  font-size: 0.85rem;
+  font: normal normal normal 14px/20px Open Sans;
   text-decoration: underline;
   color: #5861AE;
 }
@@ -158,14 +155,16 @@ select:focus {
 }
 
 .register-btn {
-  margin-top: 30px;
-  padding: 12px 25px;
-  background-color: #4a4fa3;
-  color: white;
-  font-weight: bold;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+  margin-bottom: 30px;
+    width: 150px;
+    height: 50px;
+    padding: 12px 25px;
+    background-color: #4a4fa3;
+    color: white;
+    font: normal normal bold 15px / 20px Open Sans;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
 }
 .register-page {
   display: flex;
