@@ -42,8 +42,10 @@ const Footer = () => {
               <img src= {linkedin} alt='Linkedin' />
             </div>
           </div>
-
         </div>
+      </div>
+      <div className="footer-bottom-line">
+      <div className="footer-text">2021 © Laundry</div>
       </div>
     </footer>
   );

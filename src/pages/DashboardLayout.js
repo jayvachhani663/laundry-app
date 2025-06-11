@@ -1,6 +1,7 @@
 
 import "./DashboardLayout.css";
 import Summary from "./Summary";
+import FooterBottom from "../components/FooterBottom"
 import { Link, Outlet } from "react-router-dom";
 import { useState } from "react";
 import profileImg from "../assets/profile.png";
@@ -291,6 +292,7 @@ const DashboardLayout = () => {
           <Outlet />
         </main>
       </div>
+      <FooterBottom/>
     </>
   );
 };
