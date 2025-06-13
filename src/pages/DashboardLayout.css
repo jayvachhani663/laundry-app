@@ -15,47 +15,6 @@ body {
   display: flex;
 }
 
-.orders-header {
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-  align-items: center;
-  padding: 24px 32px;
-  box-sizing: border-box;
-}
-
-.orders-count {
-  font-size: 24px;
-  font-weight: 450;
-  font: normal normal Open Sans;
-  color: #000000;
-}
-
-.search-wrapper {
-  position: relative;
-  width: 260px;
-}
-
-.orders-search {
-  padding: 10px 0px 10px 39px;
-  height: 15px;
-  font-size: 14px;
-  width: 85%;
-  background-color: white;
-  outline: none;
-}
-
-.search-icon {
-  position: absolute;
-  left: 12px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 18px;
-  height: 18px;
-  opacity: 0.6;
-  pointer-events: none;
-}
-
 .no-orders-container {
   display: flex;
   flex-direction: column;

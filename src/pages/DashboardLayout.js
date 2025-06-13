@@ -1,12 +1,10 @@
-
 import "./DashboardLayout.css";
 import Summary from "./Summary";
+import OrderHeader from "../components/OrderHeader";
 import FooterBottom from "../components/FooterBottom";
 import AfterSigninHeader from "../components/afterSigninHeader";
 import Sidebar from "../components/sidebar";
-import { Outlet } from "react-router-dom";
 import { useState } from "react";
-import search from "../assets/search.svg";
 import washIcon from "../assets/orderIcons/washing-machine-1.svg";
 import blueWashIcon from "../assets/orderIcons/clickedIcons/washing-machine.svg";
 import ironIcon from "../assets/orderIcons/ironing-1.svg";
@@ -90,27 +88,15 @@ const DashboardLayout = () => {
 
   return (
     <>
-      <AfterSigninHeader/>
-
+      <AfterSigninHeader />
       <div className="dashboard-container">
-
-        <Sidebar activeIcon={"add"}/>
-
+        <Sidebar activeIcon={"add"} />
         <div className="orders-section">
-          <div className="orders-header">
-            <div className="orders-count">
-              {isCreatingOrder ? "Create Order" : "Orders | 0"}
-            </div>
-            <div className="search-wrapper">
-              <input
-                type="text"
-                placeholder="Search"
-                className="orders-search"
-              />
-              <img src={search} alt="search" className="search-icon" />
-            </div>
-          </div>
-
+          <OrderHeader
+            isCreatingOrder={isCreatingOrder}
+            handleCreateClick={handleCreateClick}
+          />
+          {/* 👉 This is the "No Orders Available + Create" section */}
           {!isCreatingOrder && (
             <div className="no-orders-container">
               <div className="no-orders-message">No Orders Available</div>
@@ -123,6 +109,7 @@ const DashboardLayout = () => {
             </div>
           )}
 
+          {/* 👉 If Create is clicked, show the order creation section */}
           {isCreatingOrder && (
             <>
               <div className="order-create-table">
@@ -243,7 +230,8 @@ const DashboardLayout = () => {
                   );
                 })}
               </div>
-              <div class="action-buttons">
+
+              <div className="action-buttons">
                 <button
                   className="proceed-btn"
                   onClick={() => setShowSummary(true)}
@@ -253,6 +241,8 @@ const DashboardLayout = () => {
               </div>
             </>
           )}
+
+          {/* 👉 Summary popup after Proceed */}
           {showSummary && (
             <div className="summary-backdrop">
               <Summary
@@ -262,12 +252,8 @@ const DashboardLayout = () => {
             </div>
           )}
         </div>
-
-        <main style={{ padding: "1rem" }}>
-          <Outlet />
-        </main>
       </div>
-      <FooterBottom/>
+      <FooterBottom />
     </>
   );
 };
