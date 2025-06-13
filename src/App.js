@@ -3,6 +3,7 @@ import Signin from './pages/SignIn';
 import Layout from './components/Layout';
 import Register from './pages/Register';
 import Deshboard from './pages/DashboardLayout';
+import Orders from './pages/Orders';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path="register" element={<Register />} />
         </Route>
         <Route path="deshbord" element={<Deshboard />} />
+        <Route path="Orders" element={<Orders />} />
       </Routes>
     </Router>
   );

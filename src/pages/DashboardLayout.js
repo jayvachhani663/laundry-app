@@ -1,13 +1,11 @@
 
 import "./DashboardLayout.css";
 import Summary from "./Summary";
-import FooterBottom from "../components/FooterBottom"
-import { Link, Outlet } from "react-router-dom";
+import FooterBottom from "../components/FooterBottom";
+import AfterSigninHeader from "../components/afterSigninHeader";
+import Sidebar from "../components/sidebar";
+import { Outlet } from "react-router-dom";
 import { useState } from "react";
-import profileImg from "../assets/profile.png";
-import home from "../assets/home-run.svg";
-import more from "../assets/more.svg";
-import list from "../assets/list.svg";
 import search from "../assets/search.svg";
 import washIcon from "../assets/orderIcons/washing-machine-1.svg";
 import blueWashIcon from "../assets/orderIcons/clickedIcons/washing-machine.svg";
@@ -92,34 +90,11 @@ const DashboardLayout = () => {
 
   return (
     <>
-      <nav className="dashboard-navbar">
-        <div className="dashboard-logo">LAUNDRY</div>
-        <div className="dashboard-nav-links">
-          <Link to="#">Pricing</Link>
-          <Link to="#">Career</Link>
-          <div className="dashboard-profile-box">
-            <img
-              src={profileImg}
-              alt="Profile"
-              className="dashboard-profile-image"
-            />
-            <span className="dashboard-username">User Name</span>
-          </div>
-        </div>
-      </nav>
+      <AfterSigninHeader/>
 
       <div className="dashboard-container">
-        <div className="left-sidebar">
-          <div className="sidebar-icon">
-            <img src={home} alt="Home" />
-          </div>
-          <div className="sidebar-icon active">
-            <img src={more} alt="Add Order" />
-          </div>
-          <div className="sidebar-icon">
-            <img src={list} alt="List" />
-          </div>
-        </div>
+
+        <Sidebar activeIcon={"add"}/>
 
         <div className="orders-section">
           <div className="orders-header">

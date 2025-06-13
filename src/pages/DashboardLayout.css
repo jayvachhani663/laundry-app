@@ -11,105 +11,8 @@ body {
   min-height: 100vh;
 }
 
-.dashboard-navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 0 0 50px;
-  height: 50px;
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-}
-
-.dashboard-logo {
-  font-size: 32px;
-  font-weight: 700;
-  color: #3f51b5;
-  letter-spacing: 0.5px;
-}
-
-.dashboard-nav-links {
-  display: flex;
-  align-items: center;
-  gap: 32px;
-}
-
-.dashboard-nav-links a {
-  text-decoration: none;
-  color: #333;
-  font-weight: 500;
-  font-size: 16px;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 24px;
-  border-left: 1px solid #ddd;
-}
-
-.dashboard-nav-links a:hover {
-  color: #3f51b5;
-}
-
-.dashboard-profile-box {
-  display: flex;
-  align-items: center;
-  border-left: 1px solid #ddd;
-  background-color: #3f51b5;
-  padding: 0 24px;
-  height: 50px;
-  gap: 8px;
-}
-
-.dashboard-profile-image {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-}
-
-.dashboard-username {
-  color: white;
-  font-weight: 500;
-  font-size: 16px;
-}
-
 .dashboard-container {
   display: flex;
-}
-
-.left-sidebar {
-  width: 50px;
-  height: auto;
-  background-color: #5861ae;
-  display: flex;
-  flex-direction: column;
-  top: 80px;
-  left: 0;
-}
-
-.sidebar-icon {
-  width: 48px;
-  height: 48px;
-  margin: 24px 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-}
-
-.sidebar-icon img {
-  width: 24px;
-  height: 24px;
-  filter: brightness(0) invert(1);
-}
-
-.sidebar-icon.active {
-  background-color: white;
-  width: 100%;
-}
-
-.sidebar-icon.active img {
-  filter: none;
 }
 
 .orders-header {
@@ -135,6 +38,7 @@ body {
 
 .orders-search {
   padding: 10px 0px 10px 39px;
+  height: 15px;
   font-size: 14px;
   width: 85%;
   background-color: white;

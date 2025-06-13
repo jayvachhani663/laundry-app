@@ -1,0 +1,34 @@
+.left-sidebar {
+  width: 50px;
+  height: auto;
+  background-color: #5861ae;
+  display: flex;
+  flex-direction: column;
+  top: 80px;
+  left: 0;
+}
+
+.sidebar-icon {
+  width: 48px;
+  height: 48px;
+  margin: 24px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.sidebar-icon img {
+  width: 24px;
+  height: 24px;
+  filter: brightness(0) invert(1);
+}
+
+.sidebar-icon.active {
+  background-color: white;
+  width: 100%;
+}
+
+.sidebar-icon.active img {
+  filter: none;
+}

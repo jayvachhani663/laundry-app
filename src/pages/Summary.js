@@ -1,5 +1,6 @@
-import React, { useState } from "react";
 import "./Summary.css";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import SummaryAddAddress from "./SummaryAddAddress";
 
 const SERVICE_PRICES = {
@@ -15,6 +16,11 @@ function Summary({ onClose, orderItems }) {
   const [addresses, setAddresses] = useState([]);
   const [selectedAddressIndex, setSelectedAddressIndex] = useState(null);
   const [showConfirmation, setShowConfirmation] = useState(false);
+  const navigate = useNavigate();
+
+  const goToOrders = () => {
+    navigate ('/Orders');
+  }
 
   const storeDetails = {
     jpNagar: {
@@ -156,7 +162,7 @@ function Summary({ onClose, orderItems }) {
 
               <div className="summary-divider" />
 
-              {/* ✅ ADDRESS SECTION */}
+              {/* ADDRESS SECTION */}
               <div className="addressLable">Address</div>
               <div className="address-cards-wrapper">
                 {addresses.map((addr, index) => (
@@ -221,7 +227,7 @@ function Summary({ onClose, orderItems }) {
             <div className="confirmation-icon">✔</div>
             <h2>Your order is successfully.</h2>
             <p>You can track the delivery in the "Orders" section.</p>
-            <button className="go-to-orders-btn">Go to orders</button>
+            <button className="go-to-orders-btn" onClick={goToOrders}>Go to orders</button>
           </div>
         </div>
       )}

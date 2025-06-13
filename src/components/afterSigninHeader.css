@@ -1,0 +1,62 @@
+
+.afterSigninHeader-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 0 0 50px;
+  height: 50px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.afterSigninHeader-logo {
+  font-size: 32px;
+  font-weight: 700;
+  color: #3f51b5;
+  letter-spacing: 0.5px;
+}
+
+.afterSigninHeader-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.afterSigninHeader-nav-links a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  font-size: 16px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 24px;
+  border-left: 1px solid #ddd;
+}
+
+.afterSigninHeader-nav-links a:hover {
+  color: #3f51b5;
+}
+
+.afterSigninHeader-profile-box {
+  display: flex;
+  align-items: center;
+  border-left: 1px solid #ddd;
+  background-color: #3f51b5;
+  padding: 0 24px;
+  height: 50px;
+  gap: 8px;
+}
+
+.afterSigninHeader-profile-image {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+.afterSigninHeader-username {
+  color: white;
+  font-weight: 500;
+  font-size: 16px;
+}
