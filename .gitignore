@@ -21,3 +21,7 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# ignore backend dependencies and secrets
+laundry-backend/node_modules/
+laundry-backend/.env
