@@ -60,3 +60,25 @@
   font-weight: 500;
   font-size: 16px;
 }
+
+.logout-button {
+  position: absolute;
+  top: 50px; 
+  right: 5px;
+  background-color: #5861ae;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  z-index: 10;
+  font-weight: bold;
+}
+
+.afterSigninHeader-profile-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}

@@ -1,8 +1,12 @@
+import "./Orders.css";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import OrdersSummary from "./OrdersSummary";
 import AfterSigninHeader from "../components/afterSigninHeader";
 import LeftSidebar from "../components/sidebar";
 import FooterBottom from "../components/FooterBottom";
+import OrderCancel from "./OrderCancel";
 import search from "../assets/search.svg";
-import "./Orders.css";
 
 const mockOrders = [
   {
@@ -48,32 +52,44 @@ const mockOrders = [
 ];
 
 const Orders = () => {
+  const navigate = useNavigate();
+  const [showOrderSummary, setShowOrderSummary] = useState(false);
+  const [cancelPopupOrderId, setCancelPopupOrderId] = useState(null);
+  const [cancelledOrders, setCancelledOrders] = useState([]);
+
+  const handleCreateClick = () => {
+    navigate("/dashboard?create=true");
+  };
+
+  const handleCancelConfirmed = (orderId) => {
+    setCancelledOrders((prev) => [...prev, orderId]);
+    setCancelPopupOrderId(null);
+  };
+
   return (
     <div className="orders-page">
       <AfterSigninHeader />
       <div className="orders-main">
         <LeftSidebar activeIcon={"list"} />
 
-        {/* 🆕 Right side container */}
         <div className="orders-section">
           <div className="orders-page-header">
             <div className="orders-page-title">Orders</div>
             <div className="orders-page-controls">
-              <button className="orders-page-create-btn">Create</button>
+              <button className="orders-page-create-btn" onClick={handleCreateClick}>
+                Create
+              </button>
               <div className="orders-page-search-wrapper">
                 <input
                   type="text"
                   placeholder="Search"
                   className="orders-page-search"
                 />
-                <img
-                  src={search}
-                  alt="search"
-                  className="orders-page-search-icon"
-                />
+                <img src={search} alt="search" className="orders-page-search-icon" />
               </div>
             </div>
           </div>
+
           <table className="orders-table">
             <thead>
               <tr>
@@ -90,7 +106,17 @@ const Orders = () => {
             </thead>
             <tbody>
               {mockOrders.map((order) => (
-                <tr key={order.id}>
+                <tr
+                  key={order.id}
+                  onClick={() => {
+                    if (order.status !== "Ready to Pickup") {
+                      setShowOrderSummary(true);
+                    }
+                  }}
+                  className={
+                    order.status !== "Ready to Pickup" ? "clickable-row" : ""
+                  }
+                >
                   <td>{order.id}</td>
                   <td>{order.date}</td>
                   <td>{order.store}</td>
@@ -101,7 +127,19 @@ const Orders = () => {
                   <td>{order.status}</td>
                   <td>
                     {order.status === "Ready to Pickup" ? (
-                      <button className="cancel-btn">Cancel</button>
+                      cancelledOrders.includes(order.id) ? (
+                        <span style={{ color: "red", fontWeight: "bold" }}>Cancelled</span>
+                      ) : (
+                        <button
+                          className="cancel-btn"
+                          onClick={(e) => {
+                            e.stopPropagation(); // prevent row click
+                            setCancelPopupOrderId(order.id);
+                          }}
+                        >
+                          Cancel
+                        </button>
+                      )
                     ) : (
                       "-"
                     )}
@@ -112,6 +150,23 @@ const Orders = () => {
           </table>
         </div>
       </div>
+
+      {showOrderSummary && (
+        <div className="summary-backdrop">
+          <OrdersSummary onClose={() => setShowOrderSummary(false)} />
+        </div>
+      )}
+
+      {cancelPopupOrderId && (
+        <div className="summary-backdrop">
+          <OrderCancel
+            orderId={cancelPopupOrderId}
+            onClose={() => setCancelPopupOrderId(null)}
+            onCancelConfirmed={handleCancelConfirmed}
+          />
+        </div>
+      )}
+
       <FooterBottom />
     </div>
   );

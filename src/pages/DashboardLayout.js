@@ -1,10 +1,12 @@
 import "./DashboardLayout.css";
+import { useState } from "react";
+import { useLocation } from "react-router-dom";
+import { useEffect } from "react";
 import Summary from "./Summary";
 import OrderHeader from "../components/OrderHeader";
 import FooterBottom from "../components/FooterBottom";
 import AfterSigninHeader from "../components/afterSigninHeader";
 import Sidebar from "../components/sidebar";
-import { useState } from "react";
 import washIcon from "../assets/orderIcons/washing-machine-1.svg";
 import blueWashIcon from "../assets/orderIcons/clickedIcons/washing-machine.svg";
 import ironIcon from "../assets/orderIcons/ironing-1.svg";
@@ -60,8 +62,20 @@ const PRODUCTS = [
 ];
 
 const DashboardLayout = () => {
-  const [isCreatingOrder, setIsCreatingOrder] = useState(false);
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const createParam = searchParams.get("create") === "true";
+  const [isCreatingOrder, setIsCreatingOrder] = useState(createParam);
   const [showSummary, setShowSummary] = useState(false);
+
+  useEffect(() => {
+    const queryParams = new URLSearchParams(location.search);
+    const isCreate = queryParams.get("create");
+    if (isCreate === "true") {
+      setIsCreatingOrder(true);
+    }
+  }, [location.search]);
+  
   const [orderItems, setOrderItems] = useState(
     PRODUCTS.map((product) => ({
       product,
