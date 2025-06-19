@@ -34,7 +34,7 @@ const SignIn = () => {
     if (!validateInput()) return;
 
     try {
-      const res = await fetch('http://localhost:5001/api/auth/login', {
+      const res = await fetch('http://laundry-app-72v5.onrender.com/api/auth/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

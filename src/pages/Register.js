@@ -36,7 +36,7 @@ const Register = () => {
     }
 
     try {
-      const res = await fetch("http://localhost:5001/api/auth/register", {
+      const res = await fetch("http://laundry-app-72v5.onrender.com/api/auth/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
