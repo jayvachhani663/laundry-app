@@ -211,14 +211,16 @@ function Summary({ onClose, orderItems }) {
               />
             )}
           </div>
-          <div className="summary-confirm-bar">
-            <button
-              className="confirm-btn"
-              onClick={() => setShowConfirmation(true)}
-            >
-              Confirm
-            </button>
-          </div>
+          {addresses.length > 0 && (
+  <div className="summary-confirm-bar">
+    <button
+      className="confirm-btn"
+      onClick={() => setShowConfirmation(true)}
+    >
+      Confirm
+    </button>
+  </div>
+)}
         </div>
       )}
       {showConfirmation && (

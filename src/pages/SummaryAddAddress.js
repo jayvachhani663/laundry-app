@@ -7,19 +7,19 @@ function SummaryAddAddress({ onClose, onSave }) {
   const [address, setAddress] = useState("");
 
   const handleSave = () => {
+    if (!name || !phone || !address) {
+      alert("Please fill all fields");
+      return;
+    }
+
     const newAddress = {
       name: name.trim(),
       phone: phone.trim(),
       address: address.trim(),
     };
 
-    if (!name || !phone || !address) {
-      alert("Please fill all fields");
-      return;
-    }
-
-    onSave(newAddress); // Send address to parent
-    onClose(); // Close the popup
+    onSave(newAddress); // send to parent
+    onClose();          // close popup
   };
 
   return (
