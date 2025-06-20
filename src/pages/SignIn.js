@@ -1,13 +1,14 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import lockIcon from '../assets/padlock.svg';
-import Footer from '../components/Footer';
-import './SignIn.css';
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import lockIcon from "../assets/padlock.svg";
+import Footer from "../components/Footer";
+import "./SignIn.css";
 
 const SignIn = () => {
-  const [emailOrPhone, setEmailOrPhone] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const [emailOrPhone, setEmailOrPhone] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
   const navigate = useNavigate();
 
   const validateInput = () => {
@@ -15,13 +16,13 @@ const SignIn = () => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if (!emailOrPhone || !password) {
-      setError('Please fill in all fields');
+      setError("Please fill in all fields");
       return false;
     }
 
     // Check if it's either valid phone or email
     if (!phoneRegex.test(emailOrPhone) && !emailRegex.test(emailOrPhone)) {
-      setError('Enter a valid phone number or email');
+      setError("Enter a valid phone number or email");
       return false;
     }
 
@@ -29,36 +30,42 @@ const SignIn = () => {
   };
 
   const handleLogin = async () => {
-    setError('');
+    setError("");
 
     if (!validateInput()) return;
+    setIsLoading(true);
 
     try {
-      const res = await fetch('https://laundry-app-72v5.onrender.com/api/auth/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ emailOrPhone, password }),
-      });
+      const res = await fetch(
+        "https://laundry-app-72v5.onrender.com/api/auth/login",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ emailOrPhone, password }),
+        }
+      );
 
       const data = await res.json();
 
       if (res.ok) {
-        console.log('Login successful:', data);
-        localStorage.setItem('userName', data.user.name);
-        navigate('/dashboard');
+        console.log("Login successful:", data);
+        localStorage.setItem("userName", data.user.name);
+        navigate("/dashboard");
       } else {
-        setError(data.error || 'Login failed');
+        setError(data.error || "Login failed");
       }
     } catch (err) {
-      console.error('Login error:', err);
-      setError('Something went wrong');
+      console.error("Login error:", err);
+      setError("Something went wrong");
+    } finally {
+      setIsLoading(false);
     }
   };
 
   const goToRegister = () => {
-    navigate('/register');
+    navigate("/register");
   };
 
   return (
@@ -91,9 +98,9 @@ const SignIn = () => {
               value={emailOrPhone}
               onChange={(e) => {
                 setEmailOrPhone(e.target.value);
-                setError('');
+                setError("");
               }}
-              className={error ? 'input-error' : ''}
+              className={error ? "input-error" : ""}
             />
 
             <label>Password</label>
@@ -103,7 +110,7 @@ const SignIn = () => {
                 value={password}
                 onChange={(e) => {
                   setPassword(e.target.value);
-                  setError('');
+                  setError("");
                 }}
               />
               <img src={lockIcon} alt="lock icon" className="lock-icon" />
@@ -113,7 +120,9 @@ const SignIn = () => {
 
             <p className="forgot-password">Forgot Password?</p>
 
-            <button onClick={handleLogin}>Sign In</button>
+            <button onClick={handleLogin} disabled={isLoading}>
+              {isLoading ? "Signing in..." : "Sign In"}
+            </button>
           </div>
         </div>
         <Footer />
