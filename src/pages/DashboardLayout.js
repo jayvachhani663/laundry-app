@@ -67,6 +67,11 @@ const DashboardLayout = () => {
   const createParam = searchParams.get("create") === "true";
   const [isCreatingOrder, setIsCreatingOrder] = useState(createParam);
   const [showSummary, setShowSummary] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+
+  // const filteredProducts = PRODUCTS.filter((product) =>
+  //   product.name.toLowerCase().includes(searchQuery.toLowerCase())
+  // );
 
   useEffect(() => {
     const queryParams = new URLSearchParams(location.search);
@@ -75,7 +80,7 @@ const DashboardLayout = () => {
       setIsCreatingOrder(true);
     }
   }, [location.search]);
-  
+
   const [orderItems, setOrderItems] = useState(
     PRODUCTS.map((product) => ({
       product,
@@ -108,6 +113,8 @@ const DashboardLayout = () => {
         <div className="orders-section">
           <OrderHeader
             isCreatingOrder={isCreatingOrder}
+            searchQuery={searchQuery}
+            onSearchChange={setSearchQuery}
             handleCreateClick={handleCreateClick}
           />
           {/* 👉 This is the "No Orders Available + Create" section */}
@@ -134,115 +141,129 @@ const DashboardLayout = () => {
                   <div className="order-col">Price</div>
                 </div>
 
-                {orderItems.map((item, index) => {
-                  const { product, quantity, selectedServices } = item;
+                {orderItems
+                  .filter((item) =>
+                    item.product.name
+                      .toLowerCase()
+                      .includes(searchQuery.toLowerCase())
+                  )
+                  .map((item, index) => {
+                    const { product, quantity, selectedServices } = item;
 
-                  const selectedPrice = Object.entries(selectedServices).reduce(
-                    (total, [type, isSelected]) =>
-                      isSelected ? total + SERVICE_PRICES[type] : total,
-                    0
-                  );
-                  const price = quantity * selectedPrice;
+                    const selectedPrice = Object.entries(
+                      selectedServices
+                    ).reduce(
+                      (total, [type, isSelected]) =>
+                        isSelected ? total + SERVICE_PRICES[type] : total,
+                      0
+                    );
+                    const price = quantity * selectedPrice;
 
-                  const handleServiceToggle = (type) => {
-                    const updated = [...orderItems];
-                    updated[index].selectedServices[type] =
-                      !updated[index].selectedServices[type];
-                    setOrderItems(updated);
-                  };
-
-                  const handleQuantityChange = (e) => {
-                    const value = parseInt(e.target.value) || 0;
-                    const updated = [...orderItems];
-                    updated[index].quantity = value;
-                    setOrderItems(updated);
-                  };
-
-                  const handleReset = () => {
-                    const updated = [...orderItems];
-                    updated[index] = {
-                      ...updated[index],
-                      quantity: 0,
-                      selectedServices: {
-                        wash: false,
-                        iron: false,
-                        towel: false,
-                        bleach: false,
-                      },
+                    const handleServiceToggle = (type) => {
+                      const updated = [...orderItems];
+                      updated[index].selectedServices[type] =
+                        !updated[index].selectedServices[type];
+                      setOrderItems(updated);
                     };
-                    setOrderItems(updated);
-                  };
 
-                  return (
-                    <div key={product.id} className="order-row">
-                      <div className="order-col product-name">
-                        <div className="product-info">
-                          <img
-                            src={product.image}
-                            alt={product.name}
-                            className="product-image"
-                          />
-                          <div className="product-details">
-                            <div className="product-title">{product.name}</div>
-                            <div className="product-desc">{product.desc}</div>
+                    const handleQuantityChange = (e) => {
+                      const value = parseInt(e.target.value) || 0;
+                      const updated = [...orderItems];
+                      updated[index].quantity = value;
+                      setOrderItems(updated);
+                    };
+
+                    const handleReset = () => {
+                      const updated = [...orderItems];
+                      updated[index] = {
+                        ...updated[index],
+                        quantity: 0,
+                        selectedServices: {
+                          wash: false,
+                          iron: false,
+                          towel: false,
+                          bleach: false,
+                        },
+                      };
+                      setOrderItems(updated);
+                    };
+
+                    return (
+                      <div key={product.id} className="order-row">
+                        <div className="order-col product-name">
+                          <div className="product-info">
+                            <img
+                              src={product.image}
+                              alt={product.name}
+                              className="product-image"
+                            />
+                            <div className="product-details">
+                              <div className="product-title">
+                                {product.name}
+                              </div>
+                              <div className="product-desc">{product.desc}</div>
+                            </div>
                           </div>
                         </div>
-                      </div>
 
-                      <div className="order-col">
-                        <input
-                          type="number"
-                          min="0"
-                          className="quantity-input"
-                          placeholder="0"
-                          value={quantity}
-                          onChange={handleQuantityChange}
-                        />
-                      </div>
+                        <div className="order-col">
+                          <input
+                            type="number"
+                            min="0"
+                            className="quantity-input"
+                            placeholder="0"
+                            value={quantity}
+                            onChange={handleQuantityChange}
+                          />
+                        </div>
 
-                      <div className="order-col wash-icons">
-                        <img
-                          src={selectedServices.wash ? blueWashIcon : washIcon}
-                          alt="Wash"
-                          onClick={() => handleServiceToggle("wash")}
-                        />
-                        <img
-                          src={selectedServices.iron ? blueIronIcon : ironIcon}
-                          alt="Iron"
-                          onClick={() => handleServiceToggle("iron")}
-                        />
-                        <img
-                          src={
-                            selectedServices.towel ? blueTowelIcon : towelIcon
-                          }
-                          alt="Towel"
-                          onClick={() => handleServiceToggle("towel")}
-                        />
-                        <img
-                          src={
-                            selectedServices.bleach
-                              ? blueBleachIcon
-                              : bleachIcon
-                          }
-                          alt="Bleach"
-                          onClick={() => handleServiceToggle("bleach")}
-                        />
-                      </div>
+                        <div className="order-col wash-icons">
+                          <img
+                            src={
+                              selectedServices.wash ? blueWashIcon : washIcon
+                            }
+                            alt="Wash"
+                            onClick={() => handleServiceToggle("wash")}
+                          />
+                          <img
+                            src={
+                              selectedServices.iron ? blueIronIcon : ironIcon
+                            }
+                            alt="Iron"
+                            onClick={() => handleServiceToggle("iron")}
+                          />
+                          <img
+                            src={
+                              selectedServices.towel ? blueTowelIcon : towelIcon
+                            }
+                            alt="Towel"
+                            onClick={() => handleServiceToggle("towel")}
+                          />
+                          <img
+                            src={
+                              selectedServices.bleach
+                                ? blueBleachIcon
+                                : bleachIcon
+                            }
+                            alt="Bleach"
+                            onClick={() => handleServiceToggle("bleach")}
+                          />
+                        </div>
 
-                      <div className="order-col price price-reset-wrapper">
-                        <span className="price-text">
-                          {quantity > 0 &&
-                          Object.values(selectedServices).includes(true)
-                            ? `${quantity} x ${selectedPrice} = ${price}`
-                            : "--"}
-                        </span>
-                        <button onClick={handleReset} className="reset-btn">
-                          Reset
-                        </button>
+                        <div className="order-col price price-reset-wrapper">
+                          <span className="price-text">
+                            {quantity > 0 &&
+                            Object.values(selectedServices).includes(true)
+                              ? `${quantity} x ${selectedPrice} = ${price}`
+                              : "--"}
+                          </span>
+                          <button onClick={handleReset} className="reset-btn">
+                            Reset
+                          </button>
+                        </div>
                       </div>
-                    </div>
-                  );
-                })}
+                    );
+                  })}
               </div>
 
               <div className="action-buttons">

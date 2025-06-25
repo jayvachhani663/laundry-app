@@ -1,7 +1,7 @@
 import "./OrderHeader.css";
 import search from "../assets/search.svg";
 
-const OrderHeader = ({ isCreatingOrder, onCreateClick }) => {
+const OrderHeader = ({ isCreatingOrder, searchQuery, onSearchChange }) => {
   return (
     <>
       <div className="orders-header">
@@ -13,6 +13,8 @@ const OrderHeader = ({ isCreatingOrder, onCreateClick }) => {
           <input
             type="text"
             placeholder="Search"
+            value={searchQuery}
+            onChange={(e) => onSearchChange(e.target.value)}
             className="orders-search"
           />
           <img src={search} alt="search" className="search-icon" />

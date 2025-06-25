@@ -7,12 +7,13 @@ body {
 }
 
 .container {
-  display: flex;
-  min-height: 100vh;
+  /* min-height: 100vh; */
+  flex-direction: column;
 }
 
 .dashboard-container {
   display: flex;
+  min-height: 100vh;
 }
 
 .no-orders-container {
@@ -42,12 +43,11 @@ body {
   transition: background-color 0.3s;
 }
 
-.orders-section {
-  margin-left: 50px;
+.dashboard-container > .orders-section {
+  flex: 1;
   display: flex;
   flex-direction: column;
-  width: calc(100% - 50px);
-  box-sizing: border-box;
+  width: 100%;
 }
 
 .create-order-button:hover {
@@ -55,10 +55,12 @@ body {
 }
 
 .order-create-table {
-  margin: 24px 32px;
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 16px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  overflow: hidden;
+  /* overflow: hidden; */
   font-family: "Open Sans", sans-serif;
 }
 
@@ -165,9 +167,9 @@ body {
 }
 
 .action-buttons {
+  padding: 16px 32px;
   display: flex;
   justify-content: flex-end;
-  padding: 20px;
   background-color: #f7f8fc;
 }
 
